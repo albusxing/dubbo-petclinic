@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.dobby.petclinic</groupId>
+    <artifactId>dubbo-petclinic</artifactId>
+    <version>1.0.0</version>
+    <packaging>pom</packaging>
+
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+
+        <spring.version>4.3.20.RELEASE</spring.version>
+        <dubbo.version>2.7.5</dubbo.version>
+
+        <mybatis.version>3.4.2</mybatis.version>
+        <mybatis-spring.version>1.3.1</mybatis-spring.version>
+        <mybatis-pagehelper.version>5.0.1</mybatis-pagehelper.version>
+        <mybatis-generator.version>1.3.5</mybatis-generator.version>
+        <mapper.version>4.0.4</mapper.version>
+
+        <thymeleaf.version>3.0.3.RELEASE</thymeleaf.version>
+        <!-- Logging -->
+        <slf4j.version>1.7.25</slf4j.version>
+        <logback.version>1.2.3</logback.version>
+
+        <!-- Web dependencies -->
+        <!-- Version update should also be done in wro.xml, petclinic.less and static resources: htmlHeader.tag and footer.tag-->
+        <webjars-bootstrap.version>3.3.6</webjars-bootstrap.version>
+        <webjars-jquery-ui.version>1.11.4</webjars-jquery-ui.version>
+        <webjars-jquery.version>2.2.4</webjars-jquery.version>
+        <wro4j.version>1.8.0</wro4j.version>
+
+        <!-- Maven plugins -->
+        <jetty-maven-plugin.version>9.4.12.v20180830</jetty-maven-plugin.version>
+
+    </properties>
+
+    <modules>
+        <module>petclinic-rpc-api</module>
+        <module>petclinic-rpc-service</module>
+        <module>petclinic-web</module>
+        <module>petclinic-dao</module>
+        <module>petclinic-common</module>
+    </modules>
+
+
+
+</project>
