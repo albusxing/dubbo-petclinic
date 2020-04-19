@@ -1,22 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
-	xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
-	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
-	http://code.alibabatech.com/schema/dubbo
-	http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:dubbo="http://dubbo.apache.org/schema/dubbo"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
+       http://dubbo.apache.org/schema/dubbo http://dubbo.apache.org/schema/dubbo/dubbo.xsd">
 
-	
-	<!-- 提供方应用信息，用于计算依赖关系 -->
-	<dubbo:application name="ems_provider" />
+    <!-- 消费方应用名，用于计算依赖关系，不是匹配条件，不要与提供方一样 -->
+    <dubbo:application name="petclinic-web"/>
 
-	<!-- 使用zookeeper注册中心暴露服务地址 -->
-	<dubbo:registry address="${zk.address}" timeout="60000" />
+    <!-- 连接 zk 注册中心 (单机)-->
+    <dubbo:registry address="${dubbo.registry.address}"/>
 
-	<!-- 用dubbo协议在20880端口暴露服务 -->
-	<dubbo:protocol name="dubbo" port="28080"  />
-	<!-- 声明需要暴露的服务接口 -->
-	<!-- <dubbo:service interface="com.qk365.ems.service.ILeadsService" timeout="60000"  ref="leadsService" /> -->
-	<dubbo:reference interface="com.qk365.qkonlinepc.service.PermissionService" id="permissionService"></dubbo:reference>
+    <!-- 生成远程服务代理，可以和本地bean一样使用demoService -->
+<!--    <dubbo:reference id="clinicService" interface="com.dobby.petclinic.rpc.api.ClinicService"/>-->
+
+    <!-- 开启注解功能，并指定要使用dubbox服务的service类所在的包 -->
+    <dubbo:annotation package="com.dobby.petclinic.rpc.api" />
 
 </beans>

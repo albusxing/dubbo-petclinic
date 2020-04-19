@@ -1,24 +1,26 @@
 package com.dobby.petclinic.rpc.service.impl;
-
-import com.dobby.petclinic.dao.mapper.*;
-import com.dobby.petclinic.dao.model.*;
+import com.dobby.petclinic.dao.*;
+import com.dobby.petclinic.model.*;
 import com.dobby.petclinic.rpc.api.ClinicService;
-import org.springframework.stereotype.Service;
-import javax.annotation.Resource;
+import org.apache.dubbo.config.annotation.Service;
+import org.springframework.beans.factory.annotation.Autowired;
 import java.util.List;
 
+/**
+ * @Service : dubbo 中的 service 注解
+ */
 @Service
 public class ClinicServiceImpl implements ClinicService {
 
-    @Resource
+    @Autowired
     private PetMapper petMapper;
-    @Resource
+    @Autowired
     private OwnerMapper ownerMapper;
-    @Resource
+    @Autowired
     private PetTypeMapper petTypeMapper;
-    @Resource
+    @Autowired
     private VetMapper vetMapper;
-    @Resource
+    @Autowired
     private VisitMapper visitMapper;
 
 
@@ -79,6 +81,7 @@ public class ClinicServiceImpl implements ClinicService {
 
     @Override
     public List<Visit> findVisitsByPetId(int petId) {
-        return null;
+        List<Visit> visits = visitMapper.findVisitsByPetId(petId);
+        return visits;
     }
 }

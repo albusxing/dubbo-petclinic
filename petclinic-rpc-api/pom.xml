@@ -15,7 +15,7 @@
 
         <dependency>
             <groupId>com.dobby.petclinic</groupId>
-            <artifactId>petclinic-dao</artifactId>
+            <artifactId>petclinic-model</artifactId>
             <version>${project.version}</version>
         </dependency>
 

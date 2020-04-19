@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	   xmlns:dubbo="http://dubbo.apache.org/schema/dubbo"
+	   xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
+       http://dubbo.apache.org/schema/dubbo
+       http://dubbo.apache.org/schema/dubbo/dubbo.xsd">
+
+	<!-- 提供者应用名称，该名称将在监控平台使用-->
+	<dubbo:application name="petclinic-rpc-service"/>
+
+	<!-- 使用zookeeper注册中心暴露服务地址 -->
+	<dubbo:registry address="${dubbo.registry.address}"/>
+
+	<!-- 服务实现 -->
+<!--	<bean id="clinicService" class="com.dobby.petclinic.rpc.service.impl.ClinicServiceImpl"/>-->
+    <!-- 要暴露的服务接口 -->
+<!--    <dubbo:service interface="com.dobby.petclinic.rpc.api.ClinicService" ref="clinicService"/>-->
+
+	<!-- 开启注解功能，并指定要使用dubbox服务的service类所在的包 -->
+	<dubbo:annotation package="com.dobby.petclinic.rpc.api" />
+
+</beans>

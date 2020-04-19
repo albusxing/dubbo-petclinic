@@ -1,5 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.dobby.petclinic.dao.mapper.VisitMapper">
+<mapper namespace="com.dobby.petclinic.dao.VisitMapper">
+
+
+    <select id="findVisitsByPetId" resultType="com.dobby.petclinic.model.Visit">
+        select id, visit_date, description
+        from visits
+        where pet_id = #{petId}
+    </select>
 
 </mapper>

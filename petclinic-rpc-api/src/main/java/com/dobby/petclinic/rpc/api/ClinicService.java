@@ -1,6 +1,6 @@
 package com.dobby.petclinic.rpc.api;
 
-import com.dobby.petclinic.dao.model.*;
+import com.dobby.petclinic.model.*;
 import java.util.List;
 
 public interface ClinicService {
